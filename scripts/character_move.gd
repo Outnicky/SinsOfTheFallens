@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const Dash_Speed = 1500.0
+const Dash_Speed = 900.0
 var dashing = false 
 var can_dash = true	
 
@@ -62,3 +61,9 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
+
+
+func _on_sword_hit_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hurtBox"):
+		area.take_damage()
+		

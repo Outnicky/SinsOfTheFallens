@@ -2,16 +2,173 @@
 
 [ext_resource type="Script" uid="uid://dcpu2356jv8q5" path="res://scripts/character_move.gd" id="1_0f027"]
 [ext_resource type="PackedScene" uid="uid://o8ef45fl4tdr" path="res://scenes/enemy.tscn" id="2_2c62f"]
+[ext_resource type="Texture2D" uid="uid://by8aivvvk73vk" path="res://sprites/__Attack-ezgif.com-gif-to-sprite-converter.png" id="2_gyfs4"]
+[ext_resource type="Texture2D" uid="uid://c4gs1bkkiu2lu" path="res://sprites/_Idle.png" id="3_d5x1h"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0f027"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c62f"]
-size = Vector2(1.7570558, 0.9170356)
+size = Vector2(1.8631822, 3.2246463)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
 size = Vector2(1, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_2c62f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mm7a"]
+atlas = ExtResource("2_gyfs4")
+region = Rect2(0, 0, 127, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq1ik"]
+atlas = ExtResource("2_gyfs4")
+region = Rect2(127, 0, 127, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfk4m"]
+atlas = ExtResource("2_gyfs4")
+region = Rect2(254, 0, 127, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66tet"]
+atlas = ExtResource("2_gyfs4")
+region = Rect2(381, 0, 127, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ycvg"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr18j"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwutr"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_671wp"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(360, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo76n"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(480, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42l1d"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jcla"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(720, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m35m6"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(840, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0ygc"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7th4q"]
+atlas = ExtResource("3_d5x1h")
+region = Rect2(1080, 0, 120, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyfs4"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_8mm7a")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_hq1ik")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_nfk4m")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_66tet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d5x1h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7ycvg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_wr18j")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qwutr")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_671wp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_mo76n")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_42l1d")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_2jcla")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_m35m6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_u0ygc")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7th4q")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f027"]
+size = Vector2(108.087234, 44.860016)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f027"]
+animation = &"new_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2c62f"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gyfs4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0f027"]
+states/new_animation/node = SubResource("AnimationNodeAnimation_0f027")
+states/new_animation/position = Vector2(425.4, 91)
+transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_2c62f"), "new_animation", "End", SubResource("AnimationNodeStateMachineTransition_gyfs4")]
+graph_offset = Vector2(117, -23)
+
+[sub_resource type="Animation" id="Animation_d5x1h"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mm7a"]
+_data = {
+&"new_animation": SubResource("Animation_d5x1h")
+}
 
 [node name="Node2D" type="Node2D" unique_id=1830553542]
 
@@ -22,12 +179,12 @@ collision_layer = 6
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=420577604]
-position = Vector2(0.91990846, 0.035398215)
-scale = Vector2(2.8325706, 1)
+position = Vector2(0.43513218, 3.6142414)
+scale = Vector2(1.8630179, 3.2246466)
 texture = SubResource("CanvasTexture_0f027")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1891905235]
-position = Vector2(0.37700233, 0.0044248104)
+position = Vector2(0.43504995, 3.6142411)
 shape = SubResource("RectangleShape2D_2c62f")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=520092433]
@@ -39,8 +196,22 @@ script = ExtResource("1_0f027")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1251326460]
 shape = SubResource("RectangleShape2D_gyfs4")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=901380225]
-texture = SubResource("CanvasTexture_2c62f")
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=796502556]
+texture_filter = 1
+position = Vector2(0.09375, -0.09375)
+scale = Vector2(0.015, 0.015)
+sprite_frames = SubResource("SpriteFrames_gyfs4")
+
+[node name="SwordHit" type="Area2D" parent="CharacterBody2D/PlayerSprite" unique_id=2139805544]
+
+[node name="CollisionSword" type="CollisionShape2D" parent="CharacterBody2D/PlayerSprite/SwordHit" unique_id=1311193955]
+position = Vector2(-8.583069e-06, 2.0833278)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_0f027")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/PlayerSprite" unique_id=1019499090]
+position = Vector2(0.37700233, 0.0044248104)
+shape = SubResource("RectangleShape2D_2c62f")
 
 [node name="Enemy" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
 position = Vector2(329, -49)
@@ -77,10 +248,20 @@ wait_time = 1.0999999999999999
 one_shot = true
 
 [node name="dash_timer" type="Timer" parent="CharacterBody2D" unique_id=2129914553]
-wait_time = 0.112
+wait_time = 0.162
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662231303]
 
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1356710714]
+tree_root = SubResource("AnimationNodeStateMachine_0f027")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1237409949]
+libraries/ = SubResource("AnimationLibrary_8mm7a")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=29396816]
+
+[connection signal="area_entered" from="CharacterBody2D/PlayerSprite/SwordHit" to="CharacterBody2D" method="_on_sword_hit_area_entered"]
 [connection signal="timeout" from="CharacterBody2D/dash_again_timer" to="CharacterBody2D" method="_on_dash_again_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/dash_timer" to="CharacterBody2D" method="_on_dash_timer_timeout"]
