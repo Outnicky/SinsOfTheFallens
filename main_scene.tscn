@@ -5,7 +5,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_0f027"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c62f"]
-size = Vector2(0.990084, 0.9170356)
+size = Vector2(1.7570558, 0.9170356)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
 size = Vector2(1, 1)
@@ -19,13 +19,16 @@ position = Vector2(271, 222)
 scale = Vector2(655.5, 56.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=420577604]
+position = Vector2(0.91990846, 0.035398215)
+scale = Vector2(2.8325706, 1)
 texture = SubResource("CanvasTexture_0f027")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1891905235]
-position = Vector2(-0.006483583, 0.004424773)
+position = Vector2(0.37700233, 0.0044248104)
 shape = SubResource("RectangleShape2D_2c62f")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=520092433]
+position = Vector2(195, 129)
 scale = Vector2(32, 32)
 script = ExtResource("1_0f027")
 
@@ -34,3 +37,16 @@ shape = SubResource("RectangleShape2D_gyfs4")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=901380225]
 texture = SubResource("CanvasTexture_2c62f")
+
+[node name="dash_again_timer" type="Timer" parent="CharacterBody2D" unique_id=400728337]
+wait_time = 1.0999999999999999
+one_shot = true
+
+[node name="dash_timer" type="Timer" parent="CharacterBody2D" unique_id=2129914553]
+wait_time = 0.112
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=662231303]
+
+[connection signal="timeout" from="CharacterBody2D/dash_again_timer" to="CharacterBody2D" method="_on_dash_again_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/dash_timer" to="CharacterBody2D" method="_on_dash_timer_timeout"]
