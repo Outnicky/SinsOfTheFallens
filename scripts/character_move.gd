@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY =-500.0
 const Dash_Speed = 900.0
+var double_jump = true
 var dashing = false 
 var can_dash = true	
 
@@ -17,8 +18,16 @@ func _physics_process(delta: float) -> void:
 	#var dashing = true 
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			double_jump = true
+			velocity.y = JUMP_VELOCITY
+		elif double_jump:
+			double_jump = false
+			velocity.y = JUMP_VELOCITY
+	
+	
+		
 	if Input.is_action_pressed("left"):
 		direction = -1
 	if Input.is_action_pressed("right"):
