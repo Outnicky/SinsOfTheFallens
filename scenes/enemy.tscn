@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://o8ef45fl4tdr"]
+
+[ext_resource type="Script" uid="uid://n1htr5rke567" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://mjjvhssi2ovy" path="res://scenes/ray.tscn" id="2_md0e3"]
+
+[sub_resource type="Gradient" id="Gradient_md0e3"]
+colors = PackedColorArray(0.5345741, 0.16386116, 0, 1, 0.6856508, 0.67099583, 3.85046e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ra3w"]
+gradient = SubResource("Gradient_md0e3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+size = Vector2(64, 66)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=657349636]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_7p1mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=618054572]
+texture = SubResource("GradientTexture2D_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1342039227]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="RayCast2D" parent="." unique_id=75994177 instance=ExtResource("2_md0e3")]
