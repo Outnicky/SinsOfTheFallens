@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xoo1lvujfdrg"]
 
 [ext_resource type="Script" uid="uid://dcpu2356jv8q5" path="res://scripts/character_move.gd" id="1_0f027"]
+[ext_resource type="PackedScene" uid="uid://o8ef45fl4tdr" path="res://scenes/enemy.tscn" id="2_2c62f"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0f027"]
 
@@ -17,6 +18,8 @@ size = Vector2(1, 1)
 [node name="RigidBody2D" type="StaticBody2D" parent="." unique_id=1551623536]
 position = Vector2(271, 222)
 scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=420577604]
 texture = SubResource("CanvasTexture_0f027")
@@ -27,6 +30,7 @@ shape = SubResource("RectangleShape2D_2c62f")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=520092433]
 scale = Vector2(32, 32)
+collision_mask = 2
 script = ExtResource("1_0f027")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1251326460]
@@ -34,3 +38,34 @@ shape = SubResource("RectangleShape2D_gyfs4")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=901380225]
 texture = SubResource("CanvasTexture_2c62f")
+
+[node name="Enemy" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
+position = Vector2(329, -49)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1504817253]
+
+[node name="RigidBody2D2" type="StaticBody2D" parent="." unique_id=1711515723]
+position = Vector2(-377.00003, 59)
+scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2" unique_id=2097666315]
+texture = SubResource("CanvasTexture_0f027")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1870215561]
+position = Vector2(-0.006483583, 0.004424773)
+shape = SubResource("RectangleShape2D_2c62f")
+
+[node name="RigidBody2D3" type="StaticBody2D" parent="." unique_id=996092727]
+position = Vector2(167, -159)
+scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3" unique_id=726333418]
+texture = SubResource("CanvasTexture_0f027")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" unique_id=1215633520]
+position = Vector2(-0.006483583, 0.004424773)
+shape = SubResource("RectangleShape2D_2c62f")
