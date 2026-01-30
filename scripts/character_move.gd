@@ -8,6 +8,8 @@ var double_jump = true
 var dashing = false
 var crouching = false
 var can_dash = true	
+var is_attacking : bool = false 
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -15,9 +17,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	var direction = 0
 	var timer = $Timer
-	
-	#var dash = 4
-	#var dashing = true 
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
@@ -27,13 +26,12 @@ func _physics_process(delta: float) -> void:
 		elif double_jump:
 			double_jump = false
 			velocity.y = JUMP_VELOCITY
-	
-	
 		
 	if Input.is_action_pressed("left"):
 		direction = -1
 	if Input.is_action_pressed("right"):
 		direction = 1
+	
 	if Input.is_action_just_pressed("dash") and can_dash:
 		can_dash = false
 		dashing = true
@@ -52,41 +50,34 @@ func _physics_process(delta: float) -> void:
 		$CrouchingShape.disabled = true
 		$CollisionShape2D.disabled = false
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	if direction:
 		if dashing :
 			velocity.x = direction * Dash_Speed 
 		else:
 			velocity.x = direction * SPEED
 		
-		
-		
-			
-			
 	else:
 		velocity.x = 0
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 
 	move_and_slide()
-
-
-#func _on_timer_timeout() -> void: 
 	
-	#pass # Replace with function body.
-
-
 func _on_dash_timer_timeout() -> void:
 	dashing = false
 	
-
-
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
-
-
+	
 func _on_sword_hit_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurtBox"):
 		area.take_damage()
 		
+
+
+func _on_area_sword_body_entered(body: Node2D) -> void:
+	print(body.name)
+	if body is EnemyClass:
+		print(body.name)
+	
+			

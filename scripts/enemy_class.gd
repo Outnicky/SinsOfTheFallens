@@ -115,7 +115,6 @@ func _ready() -> void:
 	add_child(timer_walk)
 	add_child(timer_lose_sight)
 	timer_lose_sight.timeout.connect(func():
-		print("i have timed out")
 		set_state (State.Idle)
 	)
 	node = Node2D.new()
@@ -135,7 +134,6 @@ func _physics_process(delta: float) -> void:
 		var vector =   player.position - position
 		look(vector.normalized()) 
 		if player_in_vision == false:		
-			print("lost sight!")
 			velocity.x = 0
 		else:
 			timer_lose_sight.start()
