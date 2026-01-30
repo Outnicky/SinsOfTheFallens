@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xoo1lvujfdrg"]
 
-[ext_resource type="PackedScene" uid="uid://ducbjol5rb3np" path="res://scenes/player.tscn" id="1_2c62f"]
-[ext_resource type="PackedScene" uid="uid://o8ef45fl4tdr" path="res://scenes/enemy.tscn" id="2_2c62f"]
+[ext_resource type="PackedScene" uid="uid://ducbjol5rb3np" path="res://scenes/player.tscn" id="1_3ulyp"]
+[ext_resource type="PackedScene" uid="uid://bssfkapfb2lda" path="res://scenes/levels/angry_soul.tscn" id="3_3ulyp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2c62f"]
 
@@ -34,9 +34,9 @@ size = Vector2(20, 20.04042)
 [node name="Node2D" type="Node2D" unique_id=1830553542]
 position = Vector2(737, 511)
 
-[node name="Player" parent="." unique_id=931189419 instance=ExtResource("1_2c62f")]
+[node name="Player" parent="." unique_id=931189419 instance=ExtResource("1_3ulyp")]
 unique_name_in_owner = true
-position = Vector2(-632, -86)
+position = Vector2(-179, -35)
 
 [node name="CameraPersonagem" type="Camera2D" parent="Player" unique_id=1414931848]
 position = Vector2(1.0210698, 0.23447968)
@@ -45,17 +45,10 @@ limit_left = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1504817253]
-position = Vector2(1.0210698, 0.23447968)
-scale = Vector2(0.005704301, 0.0066994196)
+[node name="Basic" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
+position = Vector2(329, -49)
 
-[node name="Enemy" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
-position = Vector2(-407, -244)
-
-[node name="plataforma01" type="Sprite2D" parent="." unique_id=2108491512]
-position = Vector2(-429.65378, 2.8724508)
-scale = Vector2(560, -62.51956)
-texture = SubResource("CanvasTexture_2c62f")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1504817253]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="plataforma01" unique_id=391718693]
 visible = false
@@ -294,7 +287,15 @@ visible = false
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma16/StaticBody2D" unique_id=79615747]
-visible = false
-scale = Vector2(0.050263345, 0.05038475)
-shape = SubResource("RectangleShape2D_671wp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma4" unique_id=1215633520]
+position = Vector2(-0.006483583, 0.004424773)
+shape = SubResource("RectangleShape2D_2c62f")
+
+[node name="angry_soul" parent="." unique_id=1087212492 instance=ExtResource("3_3ulyp")]
+position = Vector2(167, -38)
+
+[node name="angry_soul2" parent="." unique_id=910246048 instance=ExtResource("3_3ulyp")]
+position = Vector2(73, 78)
+
+[node name="angry_soul" parent="angry_soul2" unique_id=770527605 instance=ExtResource("3_3ulyp")]
+position = Vector2(237, 99)

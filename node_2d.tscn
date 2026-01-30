@@ -2,6 +2,29 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_y32ns"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(1.0043509, 1.0125941)
+
+[node name="Node2D" type="Node2D" unique_id=604435827]
+
+[node name="rigPlataforma" type="StaticBody2D" parent="." unique_id=1898482500]
+position = Vector2(1071, 244)
+rotation = 1.5707964
+scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
+
+[node name="plataforma" type="Sprite2D" parent="rigPlataforma" unique_id=792106051]
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma" unique_id=482789834]
+position = Vector2(0.0073593296, -0.0069773197)
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[gd_scene format=3 uid="uid://bykrgii57g7r3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y32ns"]
+
 [node name="Node2D" type="Node2D" unique_id=1128746237]
 
 [node name="plataforma" type="Sprite2D" parent="." unique_id=944506573]
