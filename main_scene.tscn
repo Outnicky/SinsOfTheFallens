@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://xoo1lvujfdrg"]
 
-[ext_resource type="PackedScene" uid="uid://ducbjol5rb3np" path="res://scenes/player.tscn" id="1_2c62f"]
+[ext_resource type="PackedScene" uid="uid://bn8a826ety26v" path="res://scenes/player.tscn" id="1_2c62f"]
+[ext_resource type="Script" uid="uid://8nc127tgqmvc" path="res://scripts/enemy.gd" id="1_d5x1h"]
+[ext_resource type="PackedScene" uid="uid://b6argjkpe6kxx" path="res://scenes/Wandering_Soul.tscn" id="1_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://o8ef45fl4tdr" path="res://scenes/enemy.tscn" id="2_2c62f"]
+[ext_resource type="PackedScene" uid="uid://bssfkapfb2lda" path="res://scenes/levels/angry_soul.tscn" id="5_8mm7a"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2c62f"]
 
@@ -33,6 +36,9 @@ size = Vector2(20, 20.04042)
 
 [node name="Node2D" type="Node2D" unique_id=1830553542]
 position = Vector2(737, 511)
+script = ExtResource("1_d5x1h")
+
+[node name="Node2D" parent="." unique_id=429521124 instance=ExtResource("1_gyfs4")]
 
 [node name="Player" parent="." unique_id=931189419 instance=ExtResource("1_2c62f")]
 unique_name_in_owner = true
@@ -298,3 +304,6 @@ collision_mask = 0
 visible = false
 scale = Vector2(0.050263345, 0.05038475)
 shape = SubResource("RectangleShape2D_671wp")
+
+[node name="angry_soul" parent="." unique_id=1087212492 instance=ExtResource("5_8mm7a")]
+position = Vector2(-221, -85)
