@@ -5,7 +5,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY =-500.0
 const Dash_Speed = 900.0
 var double_jump = true
-var dashing = false 
+var dashing = false
+var crouching = false
 var can_dash = true	
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +38,14 @@ func _physics_process(delta: float) -> void:
 		can_dash = false
 		dashing = true
 		$dash_timer.start()	
-		$dash_again_timer.start()	
+		$dash_again_timer.start()
+		
+	if Input.is_action_pressed("crouch") and (crouching == false):
+		velocity.y = -JUMP_VELOCITY
+		if Input.is_action_pressed("left"):
+			direction = -0.2
+		if Input.is_action_pressed("right"):
+			direction = 0.2
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
