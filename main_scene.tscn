@@ -34,6 +34,9 @@ size = Vector2(20, 20.04042)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_671wp"]
 size = Vector2(19.899696, 19.94046)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2c62f"]
+blend_mode = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo76n"]
 
 [node name="Node2D" type="Node2D" unique_id=1830553542]
@@ -745,6 +748,22 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NodeMapa/mapa3/plataforma43/StaticBody2D" unique_id=1787630165]
+shape = SubResource("RectangleShape2D_8mm7a")
+
+[node name="plataformaPassavel" type="Sprite2D" parent="NodeMapa/mapa3" unique_id=81047245]
+material = SubResource("CanvasItemMaterial_2c62f")
+position = Vector2(4480, 634.732)
+rotation = -1.5707968
+scale = Vector2(95.78379, 226.87462)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NodeMapa/mapa3/plataformaPassavel" unique_id=1892464125]
+visible = false
+scale = Vector2(0.04876934, 0.04979317)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NodeMapa/mapa3/plataformaPassavel/StaticBody2D" unique_id=1014728209]
 shape = SubResource("RectangleShape2D_8mm7a")
 
 [node name="plataforma44" type="Sprite2D" parent="NodeMapa/mapa3" unique_id=739482697]
