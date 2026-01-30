@@ -5,7 +5,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY =-500.0
 const Dash_Speed = 900.0
 var double_jump = true
-var dashing = false 
+var dashing = false
+var crouching = false
 var can_dash = true	
 var is_attacking : bool = false 
 
@@ -35,10 +36,19 @@ func _physics_process(delta: float) -> void:
 		can_dash = false
 		dashing = true
 		$dash_timer.start()	
-		$dash_again_timer.start()	
+		$dash_again_timer.start()
 		
-	if Input.is_action_just_pressed("attack"):
-		is_attacking = true 
+	if Input.is_action_pressed("crouch") and (crouching == false):
+		velocity.y = -JUMP_VELOCITY
+		$CrouchingShape.disabled = false
+		$CollisionShape2D.disabled = true
+		if Input.is_action_pressed("left"):
+			direction = -0.2
+		if Input.is_action_pressed("right"):
+			direction = 0.2
+	else:
+		$CrouchingShape.disabled = true
+		$CollisionShape2D.disabled = false
 
 	if direction:
 		if dashing :
