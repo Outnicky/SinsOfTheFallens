@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ducbjol5rb3np"]
+[gd_scene format=3 uid="uid://bn8a826ety26v"]
 
 [ext_resource type="Script" uid="uid://dcpu2356jv8q5" path="res://scripts/character_move.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://by8aivvvk73vk" path="res://sprites/__Attack-ezgif.com-gif-to-sprite-converter.png" id="2_dqkch"]
@@ -178,10 +178,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f027"]
 size = Vector2(19.589754, 7.1023254)
-
-[sub_resource type="Animation" id="Animation_tuyoq"]
-resource_name = "attack"
-length = 0.2
 
 [sub_resource type="Animation" id="Animation_tuyoq"]
 resource_name = "crouch"
