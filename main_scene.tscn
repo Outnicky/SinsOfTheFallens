@@ -37,20 +37,30 @@ position = Vector2(737, 511)
 [node name="Player" parent="." unique_id=931189419 instance=ExtResource("1_2c62f")]
 unique_name_in_owner = true
 position = Vector2(-632, -86)
+script = null
 
-[node name="CameraPersonagem" type="Camera2D" parent="Player" unique_id=1414931848]
-position = Vector2(1.0210698, 0.23447968)
-zoom = Vector2(1.1, 1.1)
-limit_left = 0
-limit_smoothed = true
-position_smoothing_enabled = true
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1504817253]
-position = Vector2(1.0210698, 0.23447968)
-scale = Vector2(0.005704301, 0.0066994196)
+[node name="CharacterBody2D" parent="Player" unique_id=687882061 instance=ExtResource("1_2c62f")]
+scale = Vector2(0.99204755, 0.9765538)
+script = null
 
 [node name="Enemy" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
 position = Vector2(-407, -244)
+
+[node name="Enemy2" parent="." unique_id=660522520 instance=ExtResource("2_2c62f")]
+position = Vector2(-112, -506)
+
+[node name="Enemy3" parent="." unique_id=367263927 instance=ExtResource("2_2c62f")]
+position = Vector2(518, -591)
+
+[node name="Enemy5" parent="." unique_id=1636551985 instance=ExtResource("2_2c62f")]
+position = Vector2(1908, 1359)
+
+[node name="Enemy6" parent="." unique_id=1659730603 instance=ExtResource("2_2c62f")]
+position = Vector2(1611, 1359)
+
+[node name="Enemy4" parent="." unique_id=2027919278 instance=ExtResource("2_2c62f")]
+position = Vector2(-55, 1369)
+scale = Vector2(2.4411995, 2.4411995)
 
 [node name="plataforma01" type="Sprite2D" parent="." unique_id=2108491512]
 position = Vector2(-429.65378, 2.8724508)
@@ -85,9 +95,9 @@ visible = false
 shape = SubResource("RectangleShape2D_gyfs4")
 
 [node name="plataforma04" type="Sprite2D" parent="." unique_id=1472862335]
-position = Vector2(1214.1296, -357.2944)
+position = Vector2(1000.62866, -357.29437)
 rotation = 3.1415925
-scale = Vector2(634.5143, 1122.9581)
+scale = Vector2(207.51228, 1122.9581)
 texture = SubResource("CanvasTexture_2c62f")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="plataforma04" unique_id=1253748322]
@@ -200,6 +210,24 @@ position = Vector2(0.08842087, -0.039520264)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_nfk4m")
 
+[node name="plataforma17" type="Sprite2D" parent="." unique_id=1006254499]
+position = Vector2(-106.621666, -379.5576)
+rotation = -1.5707968
+scale = Vector2(141.38733, 96.53704)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma17" unique_id=2128036236]
+visible = false
+scale = Vector2(0.0420946, -0.045265846)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma17/StaticBody2D" unique_id=291849729]
+visible = false
+position = Vector2(0.08842087, -0.039520264)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_nfk4m")
+
 [node name="plataforma11" type="Sprite2D" parent="." unique_id=67431404]
 position = Vector2(-16.285706, -650.3873)
 rotation = -1.5707968
@@ -283,18 +311,82 @@ visible = false
 scale = Vector2(0.050263345, 0.05038475)
 shape = SubResource("RectangleShape2D_671wp")
 
-[node name="plataforma16" type="Sprite2D" parent="." unique_id=1775876067]
-position = Vector2(1158.0001, 378.99997)
+[node name="plataforma19" type="Sprite2D" parent="." unique_id=89156688]
+position = Vector2(1001.10834, 846.94464)
 rotation = 3.1415925
-scale = Vector2(593.12805, 226.26604)
+scale = Vector2(207.51228, 1083.4786)
 texture = SubResource("CanvasTexture_2c62f")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="plataforma16" unique_id=160683295]
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma19" unique_id=360220604]
+visible = false
+position = Vector2(-0.00022768974, 0.0009781122)
+collision_layer = 2
+collision_mask = 0
+
+[node name="plataforma3" type="CollisionShape2D" parent="plataforma19/StaticBody2D" unique_id=218237765]
+visible = false
+shape = SubResource("RectangleShape2D_gyfs4")
+
+[node name="plataforma21" type="Sprite2D" parent="." unique_id=991737359]
+position = Vector2(142.72447, 692.2157)
+rotation = 3.1415925
+scale = Vector2(838.06335, 756.4313)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma21" unique_id=1771949133]
+visible = false
+position = Vector2(-0.00022768974, 0.0009781122)
+collision_layer = 2
+collision_mask = 0
+
+[node name="plataforma3" type="CollisionShape2D" parent="plataforma21/StaticBody2D" unique_id=1648830028]
+visible = false
+shape = SubResource("RectangleShape2D_gyfs4")
+
+[node name="plataforma20" type="Sprite2D" parent="." unique_id=2087551252]
+position = Vector2(1018.73486, 1547.5679)
+rotation = 3.1415925
+scale = Vector2(2589.8599, 226.26604)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma20" unique_id=182725515]
 visible = false
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma16/StaticBody2D" unique_id=79615747]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma20/StaticBody2D" unique_id=1789614220]
+visible = false
+scale = Vector2(0.050263345, 0.05038475)
+shape = SubResource("RectangleShape2D_671wp")
+
+[node name="plataforma23" type="Sprite2D" parent="." unique_id=1998817715]
+position = Vector2(1700.0002, 1191.0001)
+rotation = 3.1415925
+scale = Vector2(-653.33295, 70.3163)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma23" unique_id=624344114]
+visible = false
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma23/StaticBody2D" unique_id=2074185576]
+visible = false
+scale = Vector2(0.050263345, 0.05038475)
+shape = SubResource("RectangleShape2D_671wp")
+
+[node name="plataforma22" type="Sprite2D" parent="." unique_id=1882523201]
+position = Vector2(-421.39636, 987.3505)
+rotation = 3.1415925
+scale = Vector2(290.40237, 1346.701)
+texture = SubResource("CanvasTexture_2c62f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma22" unique_id=232054832]
+visible = false
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma22/StaticBody2D" unique_id=1808388942]
 visible = false
 scale = Vector2(0.050263345, 0.05038475)
 shape = SubResource("RectangleShape2D_671wp")

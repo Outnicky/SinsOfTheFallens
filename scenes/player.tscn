@@ -241,6 +241,14 @@ position = Vector2(9.364009, 3.6387858)
 scale = Vector2(0.9999998, 0.99999976)
 shape = SubResource("RectangleShape2D_0f027")
 
+[node name="CameraPersonagem" type="Camera2D" parent="PlayerSprite" unique_id=1906277832]
+position = Vector2(85.38303, 41.734352)
+scale = Vector2(89.04997, 83.01777)
+zoom = Vector2(1.1, 1.1)
+limit_left = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+
 [node name="dash_again_timer" type="Timer" parent="." unique_id=1966210659]
 wait_time = 1.1
 one_shot = true
