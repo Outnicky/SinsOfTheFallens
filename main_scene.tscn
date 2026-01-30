@@ -65,8 +65,11 @@ libraries/ = SubResource("AnimationLibrary_8mm7a")
 
 [node name="ataque_colision" type="Sprite2D" parent="Player" unique_id=662231303]
 scale = Vector2(0.005704301, 0.0066994196)
+[node name="Player" parent="." unique_id=687882061 instance=ExtResource("1_2c62f")]
+unique_name_in_owner = true
+position = Vector2(-179, -35)
 
-[node name="Enemy" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
+[node name="Basic" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
 position = Vector2(329, -49)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1504817253]
