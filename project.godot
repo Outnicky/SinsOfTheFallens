@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="TheSinsOfTheFallens"
-run/main_scene="res://main_scene.tscn"
+run/main_scene="uid://xoo1lvujfdrg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_height=640
+
+[global_group]
+
+enemies=""
 
 [input]
 

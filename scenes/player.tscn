@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bn8a826ety26v"]
+[gd_scene format=3 uid="uid://ducbjol5rb3np"]
 
 [ext_resource type="Script" uid="uid://dcpu2356jv8q5" path="res://scripts/character_move.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://by8aivvvk73vk" path="res://sprites/__Attack-ezgif.com-gif-to-sprite-converter.png" id="2_dqkch"]
@@ -30,13 +30,13 @@ region = Rect2(0, 0, 127, 80)
 atlas = ExtResource("2_dqkch")
 region = Rect2(127, 0, 127, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfk4m"]
-atlas = ExtResource("2_dqkch")
-region = Rect2(254, 0, 127, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_66tet"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(381, 0, 127, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfk4m"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(254, 0, 127, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
 atlas = ExtResource("4_fjrip")
@@ -114,10 +114,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_hq1ik")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_nfk4m")
+"texture": SubResource("AtlasTexture_66tet")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_66tet")
+"texture": SubResource("AtlasTexture_nfk4m")
 }],
 "loop": true,
 "name": &"ataque",
@@ -181,20 +181,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f027"]
 size = Vector2(19.589754, 7.1023254)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f027"]
-animation = &"new_animation"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2c62f"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gyfs4"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tuyoq"]
-states/new_animation/node = SubResource("AnimationNodeAnimation_0f027")
-states/new_animation/position = Vector2(425.4, 91)
-transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_2c62f"), "new_animation", "End", SubResource("AnimationNodeStateMachineTransition_gyfs4")]
-graph_offset = Vector2(117, -23)
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "attack"
+length = 0.2
 
 [sub_resource type="Animation" id="Animation_d5x1h"]
 resource_name = "new_animation"
@@ -213,6 +202,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
 _data = {
+&"attack": SubResource("Animation_tuyoq"),
 &"new_animation": SubResource("Animation_d5x1h")
 }
 
@@ -230,11 +220,15 @@ texture_filter = 1
 position = Vector2(0.06274731, -0.27467617)
 scale = Vector2(0.011319668, 0.012334818)
 sprite_frames = SubResource("SpriteFrames_gyfs4")
-animation = &"hurt"
+animation = &"ataque"
+frame = 3
+frame_progress = 0.54376495
 
 [node name="AreaSword" type="Area2D" parent="PlayerSprite" unique_id=205137374]
-position = Vector2(0.008243723, 18.749996)
+position = Vector2(0.008244038, 18.749998)
 scale = Vector2(1.3977838, 1.0195836)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="PlayerSprite/AreaSword" unique_id=285508822]
 position = Vector2(9.364009, 3.6387858)
@@ -249,11 +243,6 @@ one_shot = true
 wait_time = 0.162
 one_shot = true
 
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1999888869]
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeStateMachine_tuyoq")
-anim_player = NodePath("../AnimationPlayer")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2137859009]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_fjrip")
@@ -262,5 +251,6 @@ libraries/ = SubResource("AnimationLibrary_fjrip")
 scale = Vector2(0.005704301, 0.0066994196)
 
 [connection signal="area_entered" from="PlayerSprite/AreaSword" to="." method="_on_sword_hit_area_entered"]
+[connection signal="body_entered" from="PlayerSprite/AreaSword" to="." method="_on_area_sword_body_entered"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
