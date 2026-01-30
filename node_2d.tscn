@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://bykrgii57g7r3"]
+[gd_scene format=3 uid="uid://b03qb4cj5482c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_y32ns"]
 
 [node name="Node2D" type="Node2D" unique_id=1128746237]
+metadata/_edit_horizontal_guides_ = [-2094.0]
 
 [node name="plataforma" type="Sprite2D" parent="." unique_id=944506573]
 position = Vector2(279.99997, 3.25978)
