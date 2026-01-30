@@ -1,0 +1,1 @@
+class_name WanderingSoul extends CharacterBody2D

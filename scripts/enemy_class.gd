@@ -2,7 +2,6 @@ class_name EnemyClass extends CharacterBody2D
 
 var health = 10
 var attack_dmg = 2
-
 const FOV = 5
 const RAYCAST_AMOUNT = 40
 const RAYCAST_DISTANCE = 500
@@ -31,6 +30,9 @@ func get_ray():
 	var ray = ray.instantiate()
 	#ray.enemy = self
 	return ray
+	
+func take_damage():
+	pass
 func show_raycast_line(target):
 	var line = Line2D.new()
 	node.add_child(line)	
@@ -67,6 +69,7 @@ func has_floor(obj: Area2D)-> bool:
 	#return !obj.get_overlapping_bodies().size()==0
 	
 func wonder():
+	set_state(State.Wandering)
 	var multipier = randf_range(0.5, 1)
 	if !has_floor(ground_right):
 		direction = -1 
@@ -79,6 +82,7 @@ func wonder():
 	timer_walk.start()
 	timer_walk.timeout.connect(wait)
 func wait():
+	set_state(State.Idle)
 	velocity = Vector2.ZERO
 	timer_wait.wait_time =get_wait_time()
 	timer_wait.start()
@@ -115,7 +119,6 @@ func _ready() -> void:
 	add_child(timer_walk)
 	add_child(timer_lose_sight)
 	timer_lose_sight.timeout.connect(func():
-		print("i have timed out")
 		set_state (State.Idle)
 	)
 	node = Node2D.new()
@@ -129,13 +132,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if state == State.Chasing:
 		var vector =   player.position - position
 		look(vector.normalized()) 
 		if player_in_vision == false:		
-			print("lost sight!")
 			velocity.x = 0
 		else:
 			timer_lose_sight.start()
@@ -149,6 +153,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
 	if velocity.x > 0:
+		
 		if !has_floor(ground_right):
 			velocity.x = 0
 	if velocity.x < 0:

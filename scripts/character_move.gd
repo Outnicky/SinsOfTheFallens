@@ -8,6 +8,41 @@ var double_jump = true
 var dashing = false 
 var can_dash = true	
 
+
+
+enum Actions {Jump, Attack, Move, Nothing}
+var action =  Actions.Nothing
+var taking_damage = false
+
+@onready var animation_player = $PlayerSprite
+
+#func set_state(new_state: State):
+	#if new_state == state:
+	#	return
+#	pass
+
+func set_action(new_action: Actions):
+	if new_action == Actions.Nothing and is_on_floor():
+		animation_player.play("Idle")
+	if new_action ==  action:
+		return
+	print("new state")
+	if new_action == Actions.Jump:
+		animation_player.play("Jump")
+		animation_player.animation_finished.connect(func():
+			animation_player.play("Fall"))
+	
+	elif new_action == Actions.Move and is_on_floor():
+		animation_player.play("Walk") 
+	
+	action = new_action
+	
+		
+
+
+	
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -19,25 +54,42 @@ func _physics_process(delta: float) -> void:
 	#var dashing = true 
 	
 	# Handle jump.
+	if is_on_floor():
+		double_jump = true
+	var jumping = false
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			double_jump = true
+		if is_on_floor(): 
+			set_action(Actions.Jump)
+			jumping = true
 			velocity.y = JUMP_VELOCITY
-		elif double_jump:
-			double_jump = false
-			velocity.y = JUMP_VELOCITY
+		elif !is_on_floor():
+			if double_jump== true:
+				double_jump  = false
+				velocity.y = JUMP_VELOCITY
+				jumping = true
+				set_action(Actions.Jump)
+
 	
-	
-		
+	   
 	if Input.is_action_pressed("left"):
+		if is_on_floor() and !jumping:
+			set_action(Actions.Move)
 		direction = -1
-	if Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right"):
+		if is_on_floor() and !jumping:
+			set_action(Actions.Move)
 		direction = 1
+	else:
+		if !jumping and velocity == Vector2.ZERO:
+			set_action(Actions.Nothing)
 	if Input.is_action_just_pressed("dash") and can_dash:
 		can_dash = false
 		dashing = true
 		$dash_timer.start()	
 		$dash_again_timer.start()	
+	
+	if action != Actions.Move and jumping:
+		set_action(Actions.Jump)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -1,7 +1,4 @@
 [gd_scene format=3 uid="uid://mjjvhssi2ovy"]
 
-[ext_resource type="Script" uid="uid://bly1ap3qq6cnq" path="res://scripts/ray.gd" id="1_dnltf"]
-
 [node name="RayCast2D" type="RayCast2D" unique_id=75994177]
 collision_mask = 3
-script = ExtResource("1_dnltf")
