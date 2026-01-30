@@ -3,11 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ducbjol5rb3np" path="res://scenes/player.tscn" id="1_2c62f"]
 [ext_resource type="PackedScene" uid="uid://o8ef45fl4tdr" path="res://scenes/enemy.tscn" id="2_2c62f"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_0f027"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c62f"]
-size = Vector2(1.0043509, 1.0125941)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f027"]
 animation = &"new_animation"
 
@@ -43,63 +38,90 @@ _data = {
 &"new_animation": SubResource("Animation_d5x1h")
 }
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_0f027"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c62f"]
+size = Vector2(1.0043509, 1.0125941)
+
 [node name="Node2D" type="Node2D" unique_id=1830553542]
-
-[node name="RigidBody2D" type="StaticBody2D" parent="." unique_id=1551623536]
-position = Vector2(-113, 76)
-scale = Vector2(655.5, 56.5)
-collision_layer = 6
-collision_mask = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=420577604]
-position = Vector2(0.430206, 3.5752213)
-scale = Vector2(1.0038139, 1.0619477)
-texture = SubResource("CanvasTexture_0f027")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1891905235]
-position = Vector2(0.43504995, 3.6142411)
-shape = SubResource("RectangleShape2D_2c62f")
+position = Vector2(699, 0)
 
 [node name="Player" parent="." unique_id=687882061 instance=ExtResource("1_2c62f")]
+
+[node name="CameraPersonagem" type="Camera2D" parent="Player" unique_id=1414931848]
+zoom = Vector2(1.1, 1.1)
+limit_left = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="AnimationTree" type="AnimationTree" parent="Player" unique_id=1356710714]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_0f027")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=1237409949]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_8mm7a")
+
+[node name="ataque_colision" type="Sprite2D" parent="Player" unique_id=662231303]
+scale = Vector2(0.005704301, 0.0066994196)
 
 [node name="Enemy" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
 position = Vector2(329, -49)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1504817253]
 
-[node name="RigidBody2D2" type="StaticBody2D" parent="." unique_id=1711515723]
+[node name="rigPlataforma" type="StaticBody2D" parent="." unique_id=736768324]
+position = Vector2(-729, 31)
+rotation = 1.5707964
+scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
+
+[node name="plataforma" type="Sprite2D" parent="rigPlataforma" unique_id=155123336]
+texture = SubResource("CanvasTexture_0f027")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma" unique_id=1733230873]
+position = Vector2(0.0073593296, -0.0069773197)
+shape = SubResource("RectangleShape2D_2c62f")
+
+[node name="rigPlataforma2" type="StaticBody2D" parent="." unique_id=1711515723]
 position = Vector2(-377.00003, 59)
 scale = Vector2(655.5, 56.5)
 collision_layer = 6
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2" unique_id=2097666315]
+[node name="plataforma" type="Sprite2D" parent="rigPlataforma2" unique_id=2097666315]
 texture = SubResource("CanvasTexture_0f027")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1870215561]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma2" unique_id=1870215561]
 position = Vector2(0.007359326, -0.0069773197)
 shape = SubResource("RectangleShape2D_2c62f")
 
-[node name="RigidBody2D3" type="StaticBody2D" parent="." unique_id=996092727]
+[node name="rigPlataforma3" type="StaticBody2D" parent="." unique_id=1551623536]
+position = Vector2(-113, 76)
+scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
+
+[node name="plataforma" type="Sprite2D" parent="rigPlataforma3" unique_id=420577604]
+position = Vector2(0.430206, 3.5752213)
+scale = Vector2(1.0038139, 1.0619477)
+texture = SubResource("CanvasTexture_0f027")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma3" unique_id=1891905235]
+position = Vector2(0.43504995, 3.6142411)
+shape = SubResource("RectangleShape2D_2c62f")
+
+[node name="rigPlataforma4" type="StaticBody2D" parent="." unique_id=996092727]
 position = Vector2(167, -159)
 scale = Vector2(655.5, 56.5)
 collision_layer = 6
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3" unique_id=726333418]
+[node name="plataforma" type="Sprite2D" parent="rigPlataforma4" unique_id=726333418]
 texture = SubResource("CanvasTexture_0f027")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" unique_id=1215633520]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma4" unique_id=1215633520]
 position = Vector2(-0.006483583, 0.004424773)
 shape = SubResource("RectangleShape2D_2c62f")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=662231303]
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1356710714]
-tree_root = SubResource("AnimationNodeStateMachine_0f027")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1237409949]
-libraries/ = SubResource("AnimationLibrary_8mm7a")
-
-[node name="Camera2D2" type="Camera2D" parent="." unique_id=29396816]

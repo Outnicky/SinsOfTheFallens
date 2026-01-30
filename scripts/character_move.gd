@@ -6,6 +6,9 @@ const Dash_Speed = 900.0
 var double_jump = true
 var dashing = false 
 var can_dash = true	
+var hp = 3
+
+var is_attacking : bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,7 +48,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * Dash_Speed 
 		else:
 			velocity.x = direction * SPEED
+		 
 		
+	if Input.is_action_just_pressed("attack"):
+		is_attacking = true
 		
 		
 			
