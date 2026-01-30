@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dcpu2356jv8q5" path="res://scripts/character_move.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://by8aivvvk73vk" path="res://sprites/__Attack-ezgif.com-gif-to-sprite-converter.png" id="2_dqkch"]
+[ext_resource type="Shape2D" uid="uid://uyeutbgk0e5u" path="res://resources/STAND.tres" id="2_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dr5ma3kvnjw6y" path="res://sprites/_Jump.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://c4gs1bkkiu2lu" path="res://sprites/_Idle.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyfafsvb83nmv" path="res://sprites/_Dash.png" id="4_fjrip"]
 [ext_resource type="Texture2D" uid="uid://rslp11afy6sd" path="res://sprites/_Hit.png" id="5_smehm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(0.3650753, 0.42876285)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_tuyoq")
@@ -196,6 +194,10 @@ states/new_animation/position = Vector2(425.4, 91)
 transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_2c62f"), "new_animation", "End", SubResource("AnimationNodeStateMachineTransition_gyfs4")]
 graph_offset = Vector2(117, -23)
 
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "crouch"
+loop_mode = 1
+
 [sub_resource type="Animation" id="Animation_d5x1h"]
 resource_name = "new_animation"
 tracks/0/type = "value"
@@ -213,8 +215,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
 _data = {
+&"crouch": SubResource("Animation_tuyoq"),
 &"new_animation": SubResource("Animation_d5x1h")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
+size = Vector2(0.17038316, 0.07032639)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=687882061]
 scale = Vector2(175.30632, 149.26666)
@@ -222,13 +228,14 @@ collision_mask = 2
 script = ExtResource("1_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1628058000]
-position = Vector2(0, -7.9863305e-10)
-shape = SubResource("RectangleShape2D_qhqgy")
+position = Vector2(0.004342642, -0.100198254)
+scale = Vector2(0.9201399, 0.7422734)
+shape = ExtResource("2_fjrip")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=252318263]
 texture_filter = 1
-position = Vector2(0.06274731, -0.27467617)
-scale = Vector2(0.011319668, 0.012334818)
+position = Vector2(0.09126882, -0.34836984)
+scale = Vector2(0.00993806, 0.010529823)
 sprite_frames = SubResource("SpriteFrames_gyfs4")
 animation = &"hurt"
 
@@ -260,6 +267,13 @@ libraries/ = SubResource("AnimationLibrary_fjrip")
 
 [node name="ataque_colision" type="Sprite2D" parent="." unique_id=1793095864]
 scale = Vector2(0.005704301, 0.0066994196)
+
+[node name="CrouchingShape" type="CollisionShape2D" parent="." unique_id=485644378]
+position = Vector2(0.008556444, -0.043546226)
+rotation = -3.1415925
+scale = Vector2(1.1717738, -3.3341637)
+shape = SubResource("RectangleShape2D_fjrip")
+debug_color = Color(0.69699055, 0.48457056, 0.27732903, 0.41960785)
 
 [connection signal="area_entered" from="PlayerSprite/AreaSword" to="." method="_on_sword_hit_area_entered"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]

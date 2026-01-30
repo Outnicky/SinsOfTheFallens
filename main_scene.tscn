@@ -80,4 +80,19 @@ texture = SubResource("CanvasTexture_0f027")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma4" unique_id=1215633520]
 position = Vector2(-0.006483583, 0.004424773)
+scale = Vector2(1.00334, 0.90614665)
+shape = SubResource("RectangleShape2D_2c62f")
+
+[node name="rigPlataforma5" type="StaticBody2D" parent="." unique_id=1530569296]
+position = Vector2(-240, 186)
+scale = Vector2(655.5, 56.5)
+collision_layer = 6
+collision_mask = 0
+
+[node name="plataforma" type="Sprite2D" parent="rigPlataforma5" unique_id=538785892]
+texture = SubResource("CanvasTexture_0f027")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma5" unique_id=1918870533]
+position = Vector2(-0.006483583, 0.004424773)
+scale = Vector2(1.00334, 0.90614665)
 shape = SubResource("RectangleShape2D_2c62f")

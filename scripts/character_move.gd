@@ -42,10 +42,15 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("crouch") and (crouching == false):
 		velocity.y = -JUMP_VELOCITY
+		$CrouchingShape.disabled = false
+		$CollisionShape2D.disabled = true
 		if Input.is_action_pressed("left"):
 			direction = -0.2
 		if Input.is_action_pressed("right"):
 			direction = 0.2
+	else:
+		$CrouchingShape.disabled = true
+		$CollisionShape2D.disabled = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
