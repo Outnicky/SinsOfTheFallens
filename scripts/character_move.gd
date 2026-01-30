@@ -5,7 +5,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY =-500.0
 const Dash_Speed = 900.0
 var double_jump = true
-var dashing = false 
+var dashing = false
+var crouching = false
 var can_dash = true	
 
 
@@ -49,9 +50,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	var direction = 0
 	var timer = $Timer
-	
-	#var dash = 4
-	#var dashing = true 
 	
 	# Handle jump.
 	if is_on_floor():
@@ -99,33 +97,28 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = direction * SPEED
 		
-		
-		
-			
-			
 	else:
 		velocity.x = 0
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 
 	move_and_slide()
-
-
-#func _on_timer_timeout() -> void: 
 	
-	#pass # Replace with function body.
-
-
 func _on_dash_timer_timeout() -> void:
 	dashing = false
 	
-
-
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
-
-
+	
 func _on_sword_hit_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurtBox"):
 		area.take_damage()
 		
+
+
+func _on_area_sword_body_entered(body: Node2D) -> void:
+	print(body.name)
+	if body is EnemyClass:
+		print(body.name)
+	
+			

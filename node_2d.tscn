@@ -20,3 +20,68 @@ texture = SubResource("CanvasTexture_y32ns")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rigPlataforma" unique_id=482789834]
 position = Vector2(0.0073593296, -0.0069773197)
 shape = SubResource("RectangleShape2D_wtcfe")
+
+[gd_scene format=3 uid="uid://bykrgii57g7r3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y32ns"]
+
+[node name="Node2D" type="Node2D" unique_id=1128746237]
+
+[node name="plataforma" type="Sprite2D" parent="." unique_id=944506573]
+position = Vector2(279.99997, 3.25978)
+scale = Vector2(560, -62.51956)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma3" type="Sprite2D" parent="." unique_id=123697999]
+position = Vector2(917.9882, -137.27704)
+rotation = 3.1415925
+scale = Vector2(726.6922, 343.22513)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma4" type="Sprite2D" parent="." unique_id=1015879924]
+position = Vector2(-23, -285)
+rotation = 3.1415925
+scale = Vector2(50.81943, 634.1028)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma2" type="Sprite2D" parent="." unique_id=2047206570]
+position = Vector2(305.00003, -176)
+rotation = -1.5707968
+scale = Vector2(30.27235, 226.87462)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma6" type="Sprite2D" parent="." unique_id=84635336]
+position = Vector2(65.077385, -281)
+rotation = -1.5707968
+scale = Vector2(30.27235, 148.71985)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma7" type="Sprite2D" parent="." unique_id=1094212681]
+position = Vector2(449.4316, -465)
+rotation = -1.5707968
+scale = Vector2(30.27235, 403.7379)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma10" type="Sprite2D" parent="." unique_id=1953876665]
+position = Vector2(693.368, -650)
+rotation = -1.5707968
+scale = Vector2(30.27235, 305.00192)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma8" type="Sprite2D" parent="." unique_id=1339426554]
+position = Vector2(1155.0349, -438)
+rotation = -1.5707968
+scale = Vector2(30.27235, 233.668)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma5" type="Sprite2D" parent="." unique_id=1591982579]
+position = Vector2(70.00006, -764)
+rotation = 3.1415925
+scale = Vector2(726.6922, 343.22513)
+texture = SubResource("CanvasTexture_y32ns")
+
+[node name="plataforma9" type="Sprite2D" parent="." unique_id=1757867800]
+position = Vector2(787, -992)
+rotation = 3.1415925
+scale = Vector2(726.6922, 343.22513)
+texture = SubResource("CanvasTexture_y32ns")
