@@ -14,9 +14,11 @@
 * Sword Attack
 * Boss Fight
 
---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This game was built in Godot in the **Global Game Jam** event in Brazil, we plan to continue working soon, expect the game to have bugs as we made in two days.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ## Contribuitors
