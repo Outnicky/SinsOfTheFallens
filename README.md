@@ -29,4 +29,4 @@ This game was built in Godot in the **Global Game Jam** event in Brazil, we plan
 * Matt-Novaes
 * NicolasMari0
 * Pedrinn567
-*ninjaskm
+* ninjaskm
