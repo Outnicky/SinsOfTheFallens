@@ -11,7 +11,7 @@
 * Sword Attack
 * Boss Fight
 
-## Contribuitors
+## Contribuitors: ##
 
 * VnRocha07
 * OutNicky
