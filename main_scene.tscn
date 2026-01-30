@@ -1,42 +1,7 @@
 [gd_scene format=3 uid="uid://xoo1lvujfdrg"]
 
-[ext_resource type="PackedScene" uid="uid://ducbjol5rb3np" path="res://scenes/player.tscn" id="1_2c62f"]
+[ext_resource type="PackedScene" uid="uid://bn8a826ety26v" path="res://scenes/player.tscn" id="1_2c62f"]
 [ext_resource type="PackedScene" uid="uid://o8ef45fl4tdr" path="res://scenes/enemy.tscn" id="2_2c62f"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f027"]
-animation = &"new_animation"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2c62f"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gyfs4"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0f027"]
-states/new_animation/node = SubResource("AnimationNodeAnimation_0f027")
-states/new_animation/position = Vector2(425.4, 91)
-transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_2c62f"), "new_animation", "End", SubResource("AnimationNodeStateMachineTransition_gyfs4")]
-graph_offset = Vector2(117, -23)
-
-[sub_resource type="Animation" id="Animation_d5x1h"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mm7a"]
-_data = {
-&"new_animation": SubResource("Animation_d5x1h")
-}
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0f027"]
 
@@ -46,28 +11,16 @@ size = Vector2(1.0043509, 1.0125941)
 [node name="Node2D" type="Node2D" unique_id=1830553542]
 position = Vector2(699, 0)
 
-[node name="Player" parent="." unique_id=687882061 instance=ExtResource("1_2c62f")]
+[node name="Player" parent="." unique_id=931189419 instance=ExtResource("1_2c62f")]
+unique_name_in_owner = true
+position = Vector2(-179, -35)
 
 [node name="CameraPersonagem" type="Camera2D" parent="Player" unique_id=1414931848]
+position = Vector2(1.0210698, 0.23447968)
 zoom = Vector2(1.1, 1.1)
 limit_left = 0
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="AnimationTree" type="AnimationTree" parent="Player" unique_id=1356710714]
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeStateMachine_0f027")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=1237409949]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_8mm7a")
-
-[node name="ataque_colision" type="Sprite2D" parent="Player" unique_id=662231303]
-scale = Vector2(0.005704301, 0.0066994196)
-[node name="Player" parent="." unique_id=687882061 instance=ExtResource("1_2c62f")]
-unique_name_in_owner = true
-position = Vector2(-179, -35)
 
 [node name="Basic" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
 position = Vector2(329, -49)
