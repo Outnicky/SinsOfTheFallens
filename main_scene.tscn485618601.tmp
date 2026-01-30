@@ -62,9 +62,8 @@ shape = SubResource("RectangleShape2D_2c62f")
 
 [node name="Player" parent="." unique_id=687882061 instance=ExtResource("1_2c62f")]
 unique_name_in_owner = true
-position = Vector2(-179, -35)
 
-[node name="Basic" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
+[node name="Wandering_soul" parent="." unique_id=657349636 instance=ExtResource("2_2c62f")]
 position = Vector2(329, -49)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1504817253]

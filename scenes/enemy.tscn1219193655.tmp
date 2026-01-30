@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://n1htr5rke567" path="res://scripts/wanderin_soul.gd" id="1_7p1mj"]
 
-[sub_resource type="Gradient" id="Gradient_7p1mj"]
+[sub_resource type="Gradient" id="Gradient_md0e3"]
 colors = PackedColorArray(0.5345741, 0.16386116, 0, 1, 0.6856508, 0.67099583, 3.85046e-07, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4ra3w"]
-gradient = SubResource("Gradient_7p1mj")
+gradient = SubResource("Gradient_md0e3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(64, 66)
@@ -23,12 +23,11 @@ script = ExtResource("1_7p1mj")
 texture = SubResource("GradientTexture2D_4ra3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1342039227]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_7p1mj")
 
 [node name="ground_left" type="Area2D" parent="." unique_id=1504876657]
 position = Vector2(-64, 26)
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_left" unique_id=1606133036]
 position = Vector2(2, 22)
@@ -36,9 +35,6 @@ shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="ground_right" type="Area2D" parent="." unique_id=1849228302]
 position = Vector2(57, 27)
-disable_mode = 1
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_right" unique_id=7236962]
 position = Vector2(2, 22)
