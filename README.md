@@ -20,10 +20,10 @@ This game was built in Godot in the **Global Game Jam** event in Brazil, we plan
 
 ## Contribuitors
 
-VnRocha07
-OutNicky
-AnzinFelipe
-Matt-Novaes
-NicolasMari0
-Pedrinn567
-ninjaskm
+* VnRocha07
+* OutNicky
+* AnzinFelipe
+* Matt-Novaes
+* NicolasMari0
+* Pedrinn567
+*ninjaskm
