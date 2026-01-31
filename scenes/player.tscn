@@ -180,10 +180,6 @@ animations = [{
 size = Vector2(19.589754, 7.1023254)
 
 [sub_resource type="Animation" id="Animation_tuyoq"]
-resource_name = "attack"
-length = 0.2
-
-[sub_resource type="Animation" id="Animation_tuyoq"]
 resource_name = "crouch"
 loop_mode = 1
 
