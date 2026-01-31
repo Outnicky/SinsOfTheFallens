@@ -233,7 +233,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="PlayerSprite/AreaSword" unique_id=285508822]
-position = Vector2(9.364009, 3.6387858)
+position = Vector2(9.438812, 3.4505816)
 scale = Vector2(0.9999998, 0.99999976)
 shape = SubResource("RectangleShape2D_0f027")
 
@@ -258,6 +258,20 @@ rotation = -3.1415925
 scale = Vector2(1.1717738, -3.3341637)
 shape = SubResource("RectangleShape2D_fjrip")
 debug_color = Color(0.69699055, 0.48457056, 0.27732903, 0.41960785)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1354401616]
+position = Vector2(0.06845161, -0.21438143)
+rotation = -0.04949425
+scale = Vector2(0.9984569, 0.5947996)
+target_position = Vector2(0.02574931, -0.29106435)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1741580297]
+position = Vector2(-0.074155904, -0.22108084)
+rotation = -0.04949425
+scale = Vector2(0.9984569, 0.5947996)
+target_position = Vector2(0.02574931, -0.29106435)
+collision_mask = 3
 
 [connection signal="area_entered" from="PlayerSprite/AreaSword" to="." method="_on_sword_hit_area_entered"]
 [connection signal="body_entered" from="PlayerSprite/AreaSword" to="." method="_on_area_sword_body_entered"]

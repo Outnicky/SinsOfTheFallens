@@ -10,6 +10,8 @@ var crouching = false
 var can_dash = true	
 var is_attacking : bool = false 
 
+func _currentPlayerState() -> void:
+	print("test")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -46,7 +48,7 @@ func _physics_process(delta: float) -> void:
 			direction = -0.2
 		if Input.is_action_pressed("right"):
 			direction = 0.2
-	else:
+	elif ($RayCast2D.is_colliding() == false and $RayCast2D2.is_colliding() == false and is_on_floor()):
 		$CrouchingShape.disabled = true
 		$CollisionShape2D.disabled = false
 
