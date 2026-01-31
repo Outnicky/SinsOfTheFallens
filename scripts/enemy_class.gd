@@ -31,6 +31,13 @@ func get_ray():
 	var ray = ray.instantiate()
 	#ray.enemy = self
 	return ray
+	
+func take_dmg(amount):
+	print("OUCH")
+	health-= amount
+	if health <= 0:
+		queue_free()
+		
 func show_raycast_line(target):
 	var line = Line2D.new()
 	node.add_child(line)	
@@ -130,6 +137,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	return
 	if state == State.Chasing:
 		var vector =   player.position - position
 		look(vector.normalized()) 

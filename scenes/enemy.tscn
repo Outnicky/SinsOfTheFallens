@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdhehunl356m1" path="res://scripts/enemy_class.gd" id="1_7p1mj"]
 [ext_resource type="Texture2D" uid="uid://ds5n2c842eadr" path="res://icon.svg" id="2_md0e3"]
+[ext_resource type="PackedScene" uid="uid://bn8a826ety26v" path="res://scenes/player.tscn" id="3_4ra3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(15, 37)
@@ -41,3 +42,6 @@ texture = ExtResource("2_md0e3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=832681136]
 position = Vector2(-3.5, -4)
 shape = SubResource("RectangleShape2D_4ra3w")
+
+[node name="CharacterBody2D" parent="." unique_id=687882061 instance=ExtResource("3_4ra3w")]
+position = Vector2(313, 132)
