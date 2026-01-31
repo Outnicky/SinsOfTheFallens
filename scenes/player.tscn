@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ducbjol5rb3np"]
+[gd_scene format=3 uid="uid://bn8a826ety26v"]
 
 [ext_resource type="Script" uid="uid://dcpu2356jv8q5" path="res://scripts/character_move.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://by8aivvvk73vk" path="res://sprites/__Attack-ezgif.com-gif-to-sprite-converter.png" id="2_dqkch"]
@@ -7,18 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c4gs1bkkiu2lu" path="res://sprites/_Idle.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyfafsvb83nmv" path="res://sprites/_Dash.png" id="4_fjrip"]
 [ext_resource type="Texture2D" uid="uid://rslp11afy6sd" path="res://sprites/_Hit.png" id="5_smehm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
-atlas = ExtResource("2_tuyoq")
-region = Rect2(0, 0, 120, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
-atlas = ExtResource("2_tuyoq")
-region = Rect2(120, 0, 120, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
-atlas = ExtResource("2_tuyoq")
-region = Rect2(240, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mm7a"]
 atlas = ExtResource("2_dqkch")
@@ -88,24 +76,26 @@ region = Rect2(960, 0, 120, 80)
 atlas = ExtResource("3_qlg0r")
 region = Rect2(1080, 0, 120, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(0, 0, 120, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyfs4"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ur7pv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y4r1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
-}],
-"loop": true,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 2.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_8mm7a")
 }, {
 "duration": 0.1,
@@ -117,8 +107,8 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_nfk4m")
 }],
-"loop": true,
-"name": &"ataque",
+"loop": false,
+"name": &"Attack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -129,7 +119,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jej6c")
 }],
 "loop": true,
-"name": &"dash",
+"name": &"Dash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -137,7 +127,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_f1ej7")
 }],
 "loop": true,
-"name": &"hurt",
+"name": &"Hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -172,44 +162,45 @@ animations = [{
 "texture": SubResource("AtlasTexture_l71n6")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f027"]
-size = Vector2(19.589754, 7.1023254)
-
-[sub_resource type="Animation" id="Animation_tuyoq"]
-resource_name = "crouch"
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_d5x1h"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/PlayerSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
-_data = {
-&"crouch": SubResource("Animation_tuyoq"),
-&"new_animation": SubResource("Animation_d5x1h")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
 size = Vector2(0.17038316, 0.07032639)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f027"]
+size = Vector2(19.589754, 7.1023254)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=687882061]
 scale = Vector2(175.30632, 149.26666)
-collision_mask = 2
+disable_mode = 2
+collision_mask = 6
 script = ExtResource("1_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1628058000]
@@ -222,20 +213,7 @@ texture_filter = 1
 position = Vector2(0.09126882, -0.34836984)
 scale = Vector2(0.00993806, 0.010529823)
 sprite_frames = SubResource("SpriteFrames_gyfs4")
-animation = &"ataque"
-frame = 3
-frame_progress = 0.54376495
-
-[node name="AreaSword" type="Area2D" parent="PlayerSprite" unique_id=205137374]
-position = Vector2(0.008244038, 18.749998)
-scale = Vector2(1.3977838, 1.0195836)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPlayer" type="CollisionShape2D" parent="PlayerSprite/AreaSword" unique_id=285508822]
-position = Vector2(9.438812, 3.4505816)
-scale = Vector2(0.9999998, 0.99999976)
-shape = SubResource("RectangleShape2D_0f027")
+animation = &"Walk"
 
 [node name="dash_again_timer" type="Timer" parent="." unique_id=1966210659]
 wait_time = 1.1
@@ -244,10 +222,6 @@ one_shot = true
 [node name="dash_timer" type="Timer" parent="." unique_id=592869721]
 wait_time = 0.162
 one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2137859009]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_fjrip")
 
 [node name="ataque_colision" type="Sprite2D" parent="." unique_id=1793095864]
 scale = Vector2(0.005704301, 0.0066994196)
@@ -259,21 +233,16 @@ scale = Vector2(1.1717738, -3.3341637)
 shape = SubResource("RectangleShape2D_fjrip")
 debug_color = Color(0.69699055, 0.48457056, 0.27732903, 0.41960785)
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1354401616]
-position = Vector2(0.06845161, -0.21438143)
-rotation = -0.04949425
-scale = Vector2(0.9984569, 0.5947996)
-target_position = Vector2(0.02574931, -0.29106435)
-collision_mask = 3
+[node name="AreaSword" type="Area2D" parent="." unique_id=1490916543]
+position = Vector2(0.09135076, -0.1509357)
+scale = Vector2(0.013891259, 0.010736034)
+collision_layer = 4
+collision_mask = 4
 
-[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1741580297]
-position = Vector2(-0.074155904, -0.22108084)
-rotation = -0.04949425
-scale = Vector2(0.9984569, 0.5947996)
-target_position = Vector2(0.02574931, -0.29106435)
-collision_mask = 3
+[node name="CollisionPlayer" type="CollisionShape2D" parent="AreaSword" unique_id=285508822]
+position = Vector2(9.364009, 3.6387858)
+scale = Vector2(0.9999998, 0.99999976)
+shape = SubResource("RectangleShape2D_0f027")
 
-[connection signal="area_entered" from="PlayerSprite/AreaSword" to="." method="_on_sword_hit_area_entered"]
-[connection signal="body_entered" from="PlayerSprite/AreaSword" to="." method="_on_area_sword_body_entered"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
