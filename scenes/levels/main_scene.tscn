@@ -32,6 +32,7 @@ size = Vector2(20, 20.04042)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwutr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_671wp"]
+size = Vector2(20.03371, 20)
 
 [node name="Node2D" type="Node2D" unique_id=1830553542]
 position = Vector2(737, 511)
@@ -273,7 +274,7 @@ shape = SubResource("RectangleShape2D_671wp")
 [node name="plataforma16" type="Sprite2D" parent="Node2D2" unique_id=1775876067]
 position = Vector2(1158.0001, 379)
 rotation = 3.1415925
-scale = Vector2(593.12805, 226.26604)
+scale = Vector2(606.9373, 226.26604)
 texture = SubResource("CanvasTexture_2c62f")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D2/plataforma16" unique_id=160683295]
